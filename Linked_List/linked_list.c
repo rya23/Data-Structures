@@ -225,7 +225,10 @@ int main()
                 break;
             }
 
-        case 8: return 0;
+        case 8:
+        {   printf("Exiting");
+             return 0;
+        }
         default: break;
 
     }
