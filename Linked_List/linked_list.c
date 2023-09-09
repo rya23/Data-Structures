@@ -123,13 +123,7 @@ int main()
             nodepointer = (struct node *)malloc(sizeof(struct node));
             printf("Enter number to be added : ");
             scanf("%d", &(*nodepointer).no);
-            if ((*listpointer).head == NULL)
-            {
-                (*listpointer).head = nodepointer;
-                (*nodepointer).link = NULL;
-            }
-            else
-                addfront(listpointer, nodepointer);
+            addfront(listpointer, nodepointer);
             break;
         }
         case 2:
