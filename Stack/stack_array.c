@@ -43,7 +43,7 @@ void pop(struct stack *s)
 int main()
 {
     struct student *stud;
-    struct stack *s1;
+    struct stack *s1 = (struct stack *)malloc(sizeof(struct stack));;
     s1->top = 0;
     printf("Enter maximum size of array : ");
     scanf("%d", &s1->max);
