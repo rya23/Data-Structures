@@ -16,7 +16,7 @@ char isempty(struct queue *s)
 
 char isfull(struct queue *s)
 {
-    return (s->rear == s->max - 1);
+    return ((s->rear+1)%s->max == s->front);
 }
 
 void enqueue(struct queue *s, int *num)
@@ -25,7 +25,7 @@ void enqueue(struct queue *s, int *num)
     if (isempty(s))
         s->front = s->rear = 0;
     else
-        s->rear++;
+        s->rear=(s->rear+1)%s->max;
     s->num[s->rear] = *num;
 }
 
@@ -37,7 +37,7 @@ void dequeue(struct queue *s)
         s->front = -1;
         s->rear = -1;
     }
-    else s->front++;
+    else s->front = (s->front+1)%s->max;
 }
 
 void front(struct queue *s)
@@ -85,7 +85,7 @@ int main()
         {
             int *num = (int *)malloc(sizeof(int));
             if (isfull(s1))
-                printf("queue is Full. Can't PUSH");
+                printf("queue is Full. Can't Enqueue");
             else
             {
                 int num;
@@ -98,7 +98,7 @@ int main()
         case 4:
         {
             if (isempty(s1))
-                printf("queue is Empty. Can't POP");
+                printf("queue is Empty. Can't Enqueue");
             else
             {
                 dequeue(s1);
