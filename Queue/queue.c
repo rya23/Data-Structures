@@ -37,7 +37,8 @@ void dequeue(struct queue *s)
         s->front = -1;
         s->rear = -1;
     }
-    else s->front++;
+    else
+        s->front++;
 }
 
 void front(struct queue *s)
@@ -83,7 +84,6 @@ int main()
         }
         case 3:
         {
-            int *num = (int *)malloc(sizeof(int));
             if (isfull(s1))
                 printf("queue is Full. Can't PUSH");
             else
